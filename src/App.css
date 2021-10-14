@@ -1,38 +1,143 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  font-display: swap;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* App.js */
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(63, 153, 141);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: url("./background-image.jpg") center center no-repeat;*/
+  background-size: cover;
+}
+
+.container {
+  width: 50vw;
   text-align: center;
+  padding: 40px 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  box-shadow: 4px 4px 13px 5px rgba(0, 0, 0, 0.25);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 80vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Title.js */
+h1 {
+  font-weight: 400;
+  margin: 0px 0 50px;
+}
+
+/* Form.js */
+input[type="text"] {
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 1px #f15186;
+  width: 40%;
+  padding-bottom: 4px;
+  color: #fff !important;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+input[type="date"] {
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 1px #f15186;
+  width: 40%;
+  padding-bottom: 4px;
+  color: #333;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+button {
+  width: 40%;
+  border: 0;
+  padding: 8px 20px;
+  margin: 0 2px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #f15186;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+*:focus {
+  outline: none;
+}
+
+/* Results.js */
+.results-city {
+  font-size: 4rem;
+}
+
+.results-country {
+  font-size: 2rem;
+}
+
+.results-temp {
+  font-size: 6rem;
+  margin: 10px 0;
+  color: #f15186;
+}
+
+.results-temp > span {
+  font-size: 3rem;
+  color: #333;
+}
+
+.results-condition {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 2.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Loading.js */
+.loading {
+  border: 4px solid #f15186;
+  border-top: 4px solid #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  animation: spin 2s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
