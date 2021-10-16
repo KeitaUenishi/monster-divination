@@ -18,7 +18,7 @@ body {
 /* App.js */
 .wrapper {
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   background-color: rgb(63, 153, 141);
   display: flex;
   justify-content: center;
