@@ -8,6 +8,7 @@ export default class Form extends Component {
       input: "",
       editing: true,
       inputCount: 0,
+      ImageFile: "",
     }
     this.handleEditing = this.handleEditing.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,7 +25,7 @@ export default class Form extends Component {
         <form>
           {editing ? (
             <div>
-              <input onChange={(e) => {
+              <input placeholder="名前を入力" onChange={(e) => {
                 this.setState({ input: e.target.value })
               }}
               type="text"
@@ -34,9 +35,14 @@ export default class Form extends Component {
             </div>
           ) : (
             <div>
-              <span>{this.state.input} さん </span>
-              <span>{this.state.inputCount} 文字</span>
-              <button onClick={this.handleEditing}>edit</button>
+              <div>
+                <span style={{"marginRight": "10px"}}>{this.state.input} さん の運勢は</span>
+              </div>
+              <br />
+              <div>
+                <img style={{"width":"300px"}} src={`${process.env.PUBLIC_URL}/${this.state.ImageFile}.jpg`} alt="test" />
+              </div>
+              <button style={{"marginTop": "20px"}} onClick={this.handleEditing}>戻る</button>
             </div>
           )}
         </form>
@@ -64,7 +70,20 @@ export default class Form extends Component {
     let inputItemCount = inputItem.toString().length;
 
     this.setState({
-      inputCount: inputItemCount
+      inputCount: inputItemCount,
+      ImageFile: DisplayImage(inputItemCount)
     })
+  }
+}
+
+function DisplayImage (count){
+  if(count > 10){
+    return "ojisan"
+  }
+  else if (count > 5){
+    return "uekibachi"
+  }
+  else {
+    return "hekoki"
   }
 }
