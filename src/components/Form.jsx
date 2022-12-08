@@ -5,10 +5,11 @@ import { monster } from "../data";
 export const Form = () => {
   const [input, setInput] = useState("")
   const [editing, setEditing] = useState(true)
-  const randomNum = Math.floor(Math.random() * 10)
-  const displayMonster = monster[randomNum]
+  let displayMonster;
 
   const displayImage = () => {
+    const randomNum = Math.floor(Math.random() * 10)
+    displayMonster = monster[randomNum]
     setEditing(false)
   }
 
@@ -36,7 +37,7 @@ export const Form = () => {
             <div>{displayMonster.name}</div>
             <div style={{"marginBottom": "10px"}}>{displayMonster.star}</div>
             <div style={{"marginBottom": "20px"}}>
-              {displayMonster.text.split("/n").map((i, key) => {
+              {displayMonster.text?.split("/n").map((i, key) => {
                 return <div key={key}>{i}</div>;
               })}
             </div>
