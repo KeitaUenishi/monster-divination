@@ -5,11 +5,10 @@ import { monster } from "../data";
 export const Form = () => {
   const [input, setInput] = useState("")
   const [editing, setEditing] = useState(true)
-  let displayMonster;
+  const randomNum = Math.floor(Math.random() * 10)
+  const displayMonster = monster[randomNum]
 
   const displayImage = () => {
-    const randomNum = Math.floor(Math.random() * 10)
-    displayMonster = monster[randomNum]
     setEditing(false)
   }
 
